@@ -1,0 +1,33 @@
+﻿@model Day05.Models.Employee
+
+<h1>Add Employee</h1>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label asp-for="Department"></label>
+        <input asp-for="Department" />
+        <span asp-validation-for="Department"></span>
+    </div>
+
+    <br />
+
+    <button type="submit">Add Employee</button>
+
+</form>
