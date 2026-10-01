@@ -1,0 +1,291 @@
+<div class="employee-page">
+
+  <header class="top-header">
+
+    <div class="brand-section">
+      <div class="brand-icon">✦</div>
+
+      <div>
+        <h1>PeopleHub</h1>
+        <p>Employee Management Portal</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+
+      <button class="notification-button">
+        🔔
+      </button>
+
+      <div class="profile">
+        <div class="profile-avatar">AP</div>
+
+        <div class="profile-info">
+          <strong>Anuneha Peteti</strong>
+          <span>Administrator</span>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <section class="welcome-section">
+
+    <div>
+      <p class="welcome-label">GOOD MORNING ✨</p>
+
+      <h2>
+        Welcome to your
+        <span>Employee Hub</span>
+      </h2>
+
+      <p class="welcome-text">
+        Manage your workforce, monitor employee activity,
+        and keep everything organized in one place.
+      </p>
+    </div>
+
+    <div class="welcome-decoration">
+      👩🏻‍💻
+    </div>
+
+  </section>
+
+
+  <section class="summary-cards">
+
+    <div class="summary-card">
+
+      <div class="card-top">
+        <div class="card-icon">👥</div>
+        <span class="card-menu">•••</span>
+      </div>
+
+      <p>Total Employees</p>
+
+      <div class="card-value">
+        <h3>{{ employees.length }}</h3>
+        <span class="growth">↗ 12%</span>
+      </div>
+
+      <small>Compared with last month</small>
+
+    </div>
+
+
+    <div class="summary-card">
+
+      <div class="card-top">
+        <div class="card-icon">🌱</div>
+        <span class="card-menu">•••</span>
+      </div>
+
+      <p>Active Employees</p>
+
+      <div class="card-value">
+        <h3>{{ activeEmployees.length }}</h3>
+        <span class="growth">↗ 8%</span>
+      </div>
+
+      <small>Currently working</small>
+
+    </div>
+
+
+    <div class="summary-card">
+
+      <div class="card-top">
+        <div class="card-icon">🌴</div>
+        <span class="card-menu">•••</span>
+      </div>
+
+      <p>On Leave</p>
+
+      <div class="card-value">
+        <h3>{{ onLeaveEmployees.length }}</h3>
+        <span class="neutral">Today</span>
+      </div>
+
+      <small>Employees on leave</small>
+
+    </div>
+
+
+    <div class="summary-card">
+
+      <div class="card-top">
+        <div class="card-icon">⏳</div>
+        <span class="card-menu">•••</span>
+      </div>
+
+      <p>Pending Requests</p>
+
+      <div class="card-value">
+        <h3>{{ pendingEmployees.length }}</h3>
+        <span class="attention">Needs attention</span>
+      </div>
+
+      <small>Waiting for approval</small>
+
+    </div>
+
+  </section>
+
+
+  <section class="employee-section">
+
+    <div class="section-heading">
+
+      <div>
+
+        <div class="section-title-row">
+          <h2>Our Employees</h2>
+
+          <span class="employee-count">
+            {{ employees.length }} members
+          </span>
+
+        </div>
+
+        <p>
+          A quick overview of your organization's workforce.
+        </p>
+
+      </div>
+
+      <button class="add-button">
+        ＋ Add Employee
+      </button>
+
+    </div>
+
+
+    <div class="toolbar">
+
+      <div class="search-wrapper">
+
+        <span class="search-icon">⌕</span>
+
+        <input type="text"
+               placeholder="Search employees..."
+               class="search-box" />
+
+      </div>
+
+      <button class="filter-button">
+        ⚙ Filters
+      </button>
+
+    </div>
+
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>EMPLOYEE</th>
+            <th>ID</th>
+            <th>DEPARTMENT</th>
+            <th>ROLE</th>
+            <th>STATUS</th>
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          @for (employee of employees; track employee.id) {
+
+          <tr>
+
+            <td>
+
+              <div class="employee-info">
+
+                <div class="avatar avatar-purple">
+                  {{ employee.name.charAt(0) }}
+                </div>
+
+                <div>
+
+                  <strong>
+                    {{ employee.name }}
+                  </strong>
+
+                  <span>
+                    {{ employee.id.toLowerCase() }}@example.com
+                  </span>
+
+                </div>
+
+              </div>
+
+            </td>
+
+
+            <td>
+
+              <span class="employee-id">
+                {{ employee.id }}
+              </span>
+
+            </td>
+
+
+            <td>
+              {{ employee.department }}
+            </td>
+
+
+            <td>
+
+              <span class="role">
+                {{ employee.role }}
+              </span>
+
+            </td>
+
+
+            <td>
+
+              <span class="status"
+                    [class.active]="employee.status === 'Active'"
+                    [class.leave]="employee.status === 'On Leave'"
+                    [class.pending]="employee.status === 'Pending'">
+
+                <i></i>
+
+                {{ employee.status }}
+
+              </span>
+
+            </td>
+
+          </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+
+  <footer class="page-footer">
+
+    <span>© 2026 PeopleHub</span>
+
+    <span>Employee Management System</span>
+
+  </footer>
+
+</div>

@@ -1,0 +1,32 @@
+.summary-box {
+  margin: 30px 0;
+  padding: 25px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(80, 60, 130, 0.08);
+  border: 1px solid #eee8ff;
+}
+
+  .summary-box h2 {
+    margin: 0 0 10px;
+    color: #35245f;
+    font-size: 22px;
+  }
+
+  .summary-box p {
+    color: #777;
+    margin: 8px 0;
+  }
+
+  .summary-box strong {
+    display: block;
+    margin-top: 10px;
+    font-size: 32px;
+    color: #7138d4;
+  }
+
+  .summary-box h3 {
+    margin-top: 25px;
+    color: #35245f;
+    font-size: 18px;
+  }
