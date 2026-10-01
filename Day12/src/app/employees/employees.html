@@ -1,0 +1,985 @@
+<div class="employees-page">
+
+  <!-- =====================================================
+       COMMON APPLICATION HEADER
+  ====================================================== -->
+
+  <header class="top-header">
+
+    <div class="brand-section">
+
+      <div class="brand-icon">
+        ✦
+      </div>
+
+      <div>
+        <h1>PeopleHub</h1>
+        <p>Employee Leave Management</p>
+      </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+      <button class="notification-button">
+        🔔
+      </button>
+
+      <div class="profile-avatar">
+        AP
+      </div>
+
+      <div class="profile-info">
+
+        <strong>
+          Anuneha Peteti
+        </strong>
+
+        <span>
+          Administrator
+        </span>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       COMMON TOP NAVIGATION
+  ====================================================== -->
+
+  <nav class="main-navigation">
+
+    <!-- Dashboard -->
+
+    <a class="nav-item"
+       routerLink="/dashboard"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">
+      🏠
+      <span>Dashboard</span>
+    </a>
+
+
+    <!-- Employees -->
+
+    <a class="nav-item"
+       routerLink="/employees"
+       routerLinkActive="active">
+      👥
+      <span>Employees</span>
+    </a>
+
+
+    <!-- Leave - route will be added later -->
+
+    <a class="nav-item">
+      🏖️
+      <span>Leave</span>
+    </a>
+
+
+    <!-- Reports - route will be added later -->
+
+    <a class="nav-item">
+      📊
+      <span>Reports</span>
+    </a>
+
+
+    <!-- Settings - route will be added later -->
+
+    <a class="nav-item">
+      ⚙️
+      <span>Settings</span>
+    </a>
+
+  </nav>
+
+
+  <!-- =====================================================
+       PAGE CONTENT
+  ====================================================== -->
+
+  <main class="content-area">
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+      <span>🏠</span>
+
+      <span>›</span>
+
+      <span>Dashboard</span>
+
+      <span>›</span>
+
+      <strong>Employees</strong>
+
+    </div>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+      <div>
+
+        <div class="title-row">
+
+          <div class="title-icon">
+            👥
+          </div>
+
+          <div>
+
+            <h2>
+              Employees
+            </h2>
+
+            <p>
+              Manage and view employee information
+              across your organization.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button class="add-employee-button">
+        ＋ Add Employee
+      </button>
+
+    </section>
+    @if (employeeId) {
+
+    <div class="route-demo">
+
+      <strong>Selected Employee ID:</strong>
+
+      <span>{{ employeeId }}</span>
+
+    </div>
+
+    }
+
+    <!-- =================================================
+       EMPLOYEE STATUS TABS
+  ================================================== -->
+
+    <section class="employee-tabs">
+
+      <button class="employee-tab active">
+
+        <span>All Employees</span>
+
+        <strong>24</strong>
+
+      </button>
+
+
+      <button class="employee-tab">
+
+        <span>
+          <i class="status-dot green"></i>
+          Active
+        </span>
+
+        <strong>20</strong>
+
+      </button>
+
+
+      <button class="employee-tab">
+
+        <span>
+          <i class="status-dot orange"></i>
+          On Leave
+        </span>
+
+        <strong>3</strong>
+
+      </button>
+
+
+      <button class="employee-tab">
+
+        <span>
+          <i class="status-dot pink"></i>
+          Pending
+        </span>
+
+        <strong>1</strong>
+
+      </button>
+
+    </section>
+
+
+    <!-- =================================================
+       MAIN EMPLOYEE AREA
+  ================================================== -->
+
+    <section class="employee-area">
+
+
+      <!-- EMPLOYEE TABLE -->
+
+      <div class="employee-table-section">
+
+
+        <!-- TOOLBAR -->
+
+        <div class="table-toolbar">
+
+          <div class="search-box">
+
+            <span>⌕</span>
+
+            <input type="text"
+                   placeholder="Search employees..." />
+
+          </div>
+
+
+          <button class="toolbar-button">
+            ⚙ Filter
+          </button>
+
+
+          <button class="toolbar-button">
+            ↕ Sort
+          </button>
+
+        </div>
+
+
+        <!-- TABLE -->
+
+        <div class="table-card">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  <input type="checkbox">
+                </th>
+
+                <th>
+                  EMPLOYEE
+                </th>
+
+                <th>
+                  DEPARTMENT
+                </th>
+
+                <th>
+                  ROLE
+                </th>
+
+                <th>
+                  STATUS
+                </th>
+
+                <th>
+                  JOINED
+                </th>
+
+                <th>
+                  ACTION
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+              <!-- EMPLOYEE 1 -->
+
+              <tr>
+
+                <td>
+                  <input type="checkbox">
+                </td>
+
+                <td>
+
+                  <div class="employee-info">
+
+                    <div class="employee-avatar purple">
+                      AR
+                    </div>
+
+                    <div>
+
+                      <strong>
+                        Ananya Reddy
+                      </strong>
+
+                      <span>
+                        ananya@company.com
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>
+                  Engineering
+                </td>
+
+                <td>
+                  Software Developer
+                </td>
+
+                <td>
+
+                  <span class="status active">
+                    <i></i>
+                    Active
+                  </span>
+
+                </td>
+
+                <td>
+                  Jan 10, 2024
+                </td>
+
+                <td class="more">
+                  •••
+                </td>
+
+              </tr>
+
+
+              <!-- EMPLOYEE 2 -->
+
+              <tr>
+
+                <td>
+                  <input type="checkbox">
+                </td>
+
+                <td>
+
+                  <div class="employee-info">
+
+                    <div class="employee-avatar blue">
+                      RK
+                    </div>
+
+                    <div>
+
+                      <strong>
+                        Rahul Kumar
+                      </strong>
+
+                      <span>
+                        rahul@company.com
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>
+                  Human Resources
+                </td>
+
+                <td>
+                  HR Executive
+                </td>
+
+                <td>
+
+                  <span class="status active">
+                    <i></i>
+                    Active
+                  </span>
+
+                </td>
+
+                <td>
+                  Feb 05, 2024
+                </td>
+
+                <td class="more">
+                  •••
+                </td>
+
+              </tr>
+
+
+              <!-- EMPLOYEE 3 -->
+
+              <tr>
+
+                <td>
+                  <input type="checkbox">
+                </td>
+
+                <td>
+
+                  <div class="employee-info">
+
+                    <div class="employee-avatar pink">
+                      SR
+                    </div>
+
+                    <div>
+
+                      <strong>
+                        Sneha Rao
+                      </strong>
+
+                      <span>
+                        sneha@company.com
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>
+                  Finance
+                </td>
+
+                <td>
+                  Financial Analyst
+                </td>
+
+                <td>
+
+                  <span class="status leave">
+                    <i></i>
+                    On Leave
+                  </span>
+
+                </td>
+
+                <td>
+                  Mar 12, 2024
+                </td>
+
+                <td class="more">
+                  •••
+                </td>
+
+              </tr>
+
+
+              <!-- EMPLOYEE 4 -->
+
+              <tr>
+
+                <td>
+                  <input type="checkbox">
+                </td>
+
+                <td>
+
+                  <div class="employee-info">
+
+                    <div class="employee-avatar orange">
+                      VK
+                    </div>
+
+                    <div>
+
+                      <strong>
+                        Vikram Kumar
+                      </strong>
+
+                      <span>
+                        vikram@company.com
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>
+                  Engineering
+                </td>
+
+                <td>
+                  Backend Developer
+                </td>
+
+                <td>
+
+                  <span class="status active">
+                    <i></i>
+                    Active
+                  </span>
+
+                </td>
+
+                <td>
+                  Mar 20, 2024
+                </td>
+
+                <td class="more">
+                  •••
+                </td>
+
+              </tr>
+
+
+              <!-- EMPLOYEE 5 -->
+
+              <tr>
+
+                <td>
+                  <input type="checkbox">
+                </td>
+
+                <td>
+
+                  <div class="employee-info">
+
+                    <div class="employee-avatar green">
+                      PD
+                    </div>
+
+                    <div>
+
+                      <strong>
+                        Pooja Desai
+                      </strong>
+
+                      <span>
+                        pooja@company.com
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>
+                  Marketing
+                </td>
+
+                <td>
+                  Marketing Executive
+                </td>
+
+                <td>
+
+                  <span class="status active">
+                    <i></i>
+                    Active
+                  </span>
+
+                </td>
+
+                <td>
+                  Apr 01, 2024
+                </td>
+
+                <td class="more">
+                  •••
+                </td>
+
+              </tr>
+
+
+              <!-- EMPLOYEE 6 -->
+
+              <tr>
+
+                <td>
+                  <input type="checkbox">
+                </td>
+
+                <td>
+
+                  <div class="employee-info">
+
+                    <div class="employee-avatar purple">
+                      NS
+                    </div>
+
+                    <div>
+
+                      <strong>
+                        Nikhil Sharma
+                      </strong>
+
+                      <span>
+                        nikhil@company.com
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                </td>
+
+                <td>
+                  Sales
+                </td>
+
+                <td>
+                  Sales Executive
+                </td>
+
+                <td>
+
+                  <span class="status pending">
+                    <i></i>
+                    Pending
+                  </span>
+
+                </td>
+
+                <td>
+                  Apr 15, 2024
+                </td>
+
+                <td class="more">
+                  •••
+                </td>
+
+              </tr>
+
+
+            </tbody>
+
+          </table>
+
+
+          <!-- TABLE FOOTER -->
+
+          <div class="table-footer">
+
+            <span>
+              Showing 1–6 of 24 employees
+            </span>
+
+
+            <div class="pagination">
+
+              <button>
+                ‹
+              </button>
+
+              <button class="selected">
+                1
+              </button>
+
+              <button>
+                2
+              </button>
+
+              <button>
+                3
+              </button>
+
+              <button>
+                ›
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+         RIGHT INFORMATION PANEL
+    ================================================== -->
+
+      <aside class="employee-sidebar">
+
+
+        <!-- OVERVIEW -->
+
+        <div class="info-card">
+
+          <div class="card-title">
+
+            <h3>
+              👥 Employee Overview
+            </h3>
+
+            <span>
+              Today
+            </span>
+
+          </div>
+
+
+          <div class="overview-list">
+
+            <div>
+              <strong>24</strong>
+              <span>Total Employees</span>
+            </div>
+
+            <div>
+              <strong>20</strong>
+              <span>Active</span>
+            </div>
+
+            <div>
+              <strong>3</strong>
+              <span>On Leave</span>
+            </div>
+
+            <div>
+              <strong>1</strong>
+              <span>Pending</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- DEPARTMENTS -->
+
+        <div class="info-card">
+
+          <div class="card-title">
+
+            <h3>
+              🏢 Departments
+            </h3>
+
+            <a>
+              View all
+            </a>
+
+          </div>
+
+
+          <div class="department">
+
+            <div class="department-name">
+
+              <span>
+                Engineering
+              </span>
+
+              <strong>
+                10
+              </strong>
+
+            </div>
+
+            <div class="progress">
+              <span style="width: 70%;"></span>
+            </div>
+
+          </div>
+
+
+          <div class="department">
+
+            <div class="department-name">
+
+              <span>
+                Human Resources
+              </span>
+
+              <strong>
+                5
+              </strong>
+
+            </div>
+
+            <div class="progress">
+              <span style="width: 45%;"></span>
+            </div>
+
+          </div>
+
+
+          <div class="department">
+
+            <div class="department-name">
+
+              <span>
+                Finance
+              </span>
+
+              <strong>
+                4
+              </strong>
+
+            </div>
+
+            <div class="progress">
+              <span style="width: 35%;"></span>
+            </div>
+
+          </div>
+
+
+          <div class="department">
+
+            <div class="department-name">
+
+              <span>
+                Marketing
+              </span>
+
+              <strong>
+                5
+              </strong>
+
+            </div>
+
+            <div class="progress">
+              <span style="width: 45%;"></span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- RECENT ACTIVITY -->
+
+        <div class="info-card">
+
+          <div class="card-title">
+
+            <h3>
+              🕐 Recent Activity
+            </h3>
+
+            <a>
+              View all
+            </a>
+
+          </div>
+
+
+          <div class="activity-item">
+
+            <div class="activity-icon purple">
+              +
+            </div>
+
+            <div>
+
+              <strong>
+                New employee added
+              </strong>
+
+              <span>
+                Ananya Reddy joined Engineering
+              </span>
+
+              <small>
+                10 minutes ago
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="activity-item">
+
+            <div class="activity-icon orange">
+              🏖
+            </div>
+
+            <div>
+
+              <strong>
+                Leave request submitted
+              </strong>
+
+              <span>
+                Sneha Rao submitted a request
+              </span>
+
+              <small>
+                1 hour ago
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="activity-item">
+
+            <div class="activity-icon green">
+              ✓
+            </div>
+
+            <div>
+
+              <strong>
+                Employee updated
+              </strong>
+
+              <span>
+                Vikram Kumar updated profile
+              </span>
+
+              <small>
+                2 hours ago
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </aside>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="page-footer">
+
+      <span>
+        © 2026 PeopleHub
+      </span>
+
+      <span>
+        Employee Management System
+      </span>
+
+    </footer>
+
+  </main>
+
+</div>
