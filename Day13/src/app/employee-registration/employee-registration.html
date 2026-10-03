@@ -1,0 +1,702 @@
+<div class="onboarding-page">
+
+  <!-- ================================================= -->
+  <!-- LEFT IDENTITY PANEL -->
+  <!-- ================================================= -->
+
+  <aside class="identity-panel">
+
+    <div class="identity-top">
+
+      <div class="brand-mark">
+        PH
+      </div>
+
+      <span class="brand-name">
+        PEOPLEHUB
+      </span>
+
+    </div>
+
+
+    <div class="identity-content">
+
+      <span class="overline">
+        EMPLOYEE ONBOARDING
+      </span>
+
+      <div class="giant-number">
+        01
+      </div>
+
+      <h1>
+        Create a<br>
+        new identity.
+      </h1>
+
+      <p>
+        Build a complete employee profile
+        and give your new team member
+        a place in the organization.
+      </p>
+
+
+      <div class="journey">
+
+        <div class="journey-item active">
+
+          <span class="journey-dot">
+            01
+          </span>
+
+          <div>
+            <strong>Employee Profile</strong>
+            <small>Personal & professional details</small>
+          </div>
+
+        </div>
+
+
+        <div class="journey-line"></div>
+
+
+        <div class="journey-item">
+
+          <span class="journey-dot">
+            02
+          </span>
+
+          <div>
+            <strong>Verification</strong>
+            <small>Review employee information</small>
+          </div>
+
+        </div>
+
+
+        <div class="journey-line"></div>
+
+
+        <div class="journey-item">
+
+          <span class="journey-dot">
+            03
+          </span>
+
+          <div>
+            <strong>Activation</strong>
+            <small>Complete employee onboarding</small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="identity-footer">
+
+      <span>SECURE REGISTRATION</span>
+
+      <span>2026</span>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- ================================================= -->
+  <!-- RIGHT FORM AREA -->
+  <!-- ================================================= -->
+
+  <main class="form-area">
+
+
+    <div class="form-topbar">
+
+      <div>
+
+        <span class="form-kicker">
+          NEW EMPLOYEE
+        </span>
+
+        <h2>
+          Employee Registration
+        </h2>
+
+        <p>
+          Enter the details below to create the employee profile.
+        </p>
+
+      </div>
+
+
+      <div class="completion">
+
+        <span>PROFILE</span>
+
+        <strong>
+
+          @if (employeeForm.valid) {
+          100%
+          } @else {
+          IN PROGRESS
+          }
+
+        </strong>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- SUCCESS MESSAGE -->
+    <!-- ================================================= -->
+    @if (submitted) {
+
+    <div class="success-banner">
+
+      <div class="success-symbol">
+        ✓
+      </div>
+
+      <div>
+
+        <strong>
+          Employee profile created successfully
+        </strong>
+
+        <p>
+          The registration details have been submitted.
+        </p>
+
+      </div>
+
+    </div>
+
+    }
+
+
+
+    <!-- ================================================= -->
+    <!-- EMPLOYEE FORM -->
+    <!-- ================================================= -->
+
+    <form #employeeForm="ngForm"
+          (ngSubmit)="registerEmployee(employeeForm)"
+          novalidate>
+
+
+      <!-- ================================================= -->
+      <!-- SECTION 01 : IDENTITY DETAILS -->
+      <!-- ================================================= -->
+
+      <section class="form-section">
+
+        <div class="section-number">
+          01
+        </div>
+
+
+        <div class="section-content">
+
+          <div class="section-title">
+
+            <h3>
+              Identity details
+            </h3>
+
+            <span>
+              REQUIRED
+            </span>
+
+          </div>
+
+
+          <div class="field-grid">
+
+
+            <!-- EMPLOYEE ID -->
+
+            <div class="field">
+
+              <label for="employeeId">
+                Employee ID
+              </label>
+
+              <input id="employeeId"
+                     type="text"
+                     name="employeeId"
+                     placeholder="EMP0001"
+                     [(ngModel)]="employeeId"
+                     required
+                     pattern="EMP[0-9]{4}"
+                     #employeeIdControl="ngModel"
+                     [class.invalid-input]="employeeIdControl.invalid && employeeIdControl.touched"
+                     [class.valid-input]="employeeIdControl.valid && employeeIdControl.touched">
+
+              @if (employeeIdControl.invalid && employeeIdControl.touched) {
+
+              <small class="validation-error">
+                Employee ID must look like EMP0001.
+              </small>
+
+              } @else {
+
+              <small class="validation-hint">
+                Format: EMP + 4 digits
+              </small>
+
+              }
+
+            </div>
+
+
+
+            <!-- EMPLOYEE NAME -->
+
+            <div class="field">
+
+              <label for="employeeName">
+                Full Name
+              </label>
+
+              <input id="employeeName"
+                     type="text"
+                     name="employeeName"
+                     placeholder="Enter full name"
+                     [(ngModel)]="employeeName"
+                     required
+                     minlength="3"
+                     pattern="[A-Za-z]+([ '-][A-Za-z]+)*"
+                     appForbiddenName="admin"
+                     #employeeNameControl="ngModel"
+                     [class.invalid-input]="employeeNameControl.invalid && employeeNameControl.touched"
+                     [class.valid-input]="employeeNameControl.valid && employeeNameControl.touched">
+
+              @if (employeeNameControl.touched && employeeNameControl.hasError('forbiddenName')) {
+
+              <small class="validation-error">
+                This name is not allowed.
+              </small>
+
+              }
+
+              @if (
+              employeeNameControl.touched &&
+              !employeeNameControl.hasError('forbiddenName') &&
+              employeeNameControl.invalid
+              ) {
+
+              <small class="validation-error">
+                Use at least 3 characters and letters only.
+              </small>
+
+              }
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="field field-wide">
+
+              <label for="email">
+                Official Email Address
+              </label>
+
+              <input id="email"
+                     type="email"
+                     name="email"
+                     placeholder="name@organization.com"
+                     [(ngModel)]="email"
+                     required
+                     email
+                     #emailControl="ngModel"
+                     [class.invalid-input]="emailControl.invalid && emailControl.touched"
+                     [class.valid-input]="emailControl.valid && emailControl.touched">
+
+              @if (emailControl.invalid && emailControl.touched) {
+
+              <small class="validation-error">
+                Enter a valid email address.
+              </small>
+
+              } @else {
+
+              <small class="validation-hint">
+                Use an official work email address.
+              </small>
+
+              }
+
+            </div>
+
+
+
+            <!-- PHONE -->
+
+            <div class="field">
+
+              <label for="phone">
+                Mobile Number
+              </label>
+
+              <input id="phone"
+                     type="tel"
+                     name="phone"
+                     placeholder="9876543210"
+                     [(ngModel)]="phone"
+                     required
+                     pattern="[6-9][0-9]{9}"
+                     #phoneControl="ngModel"
+                     [class.invalid-input]="phoneControl.invalid && phoneControl.touched"
+                     [class.valid-input]="phoneControl.valid && phoneControl.touched">
+
+              @if (phoneControl.invalid && phoneControl.touched) {
+
+              <small class="validation-error">
+                Enter a valid 10-digit mobile number.
+              </small>
+
+              } @else {
+
+              <small class="validation-hint">
+                Must start with 6, 7, 8 or 9.
+              </small>
+
+              }
+
+            </div>
+
+
+
+            <!-- JOINING DATE -->
+
+            <div class="field">
+
+              <label for="joiningDate">
+                Joining Date
+              </label>
+
+              <input id="joiningDate"
+                     type="date"
+                     name="joiningDate"
+                     [(ngModel)]="joiningDate"
+                     required
+                     #joiningDateControl="ngModel"
+                     [class.invalid-input]="joiningDateControl.invalid && joiningDateControl.touched"
+                     [class.valid-input]="joiningDateControl.valid && joiningDateControl.touched">
+
+              @if (joiningDateControl.invalid && joiningDateControl.touched) {
+
+              <small class="validation-error">
+                Joining date is required.
+              </small>
+
+              } @else {
+
+              <small class="validation-hint">
+                Select the official joining date.
+              </small>
+
+              }
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ================================================= -->
+      <!-- SECTION 02 : PROFESSIONAL DETAILS -->
+      <!-- ================================================= -->
+
+      <section class="form-section">
+
+        <div class="section-number">
+          02
+        </div>
+
+
+        <div class="section-content">
+
+          <div class="section-title">
+
+            <h3>
+              Professional details
+            </h3>
+
+            <span>
+              REQUIRED
+            </span>
+
+          </div>
+
+
+          <div class="field-grid">
+
+
+            <!-- DEPARTMENT -->
+
+            <div class="field">
+
+              <label for="department">
+                Department
+              </label>
+
+              <select id="department"
+                      name="department"
+                      [(ngModel)]="department"
+                      required
+                      #departmentControl="ngModel"
+                      [class.invalid-input]="departmentControl.invalid && departmentControl.touched"
+                      [class.valid-input]="departmentControl.valid && departmentControl.touched">
+
+                <option value="">
+                  Choose department
+                </option>
+
+                <option value="Engineering">
+                  Engineering
+                </option>
+
+                <option value="Human Resources">
+                  Human Resources
+                </option>
+
+                <option value="Finance">
+                  Finance
+                </option>
+
+                <option value="Marketing">
+                  Marketing
+                </option>
+
+                <option value="Operations">
+                  Operations
+                </option>
+
+              </select>
+
+
+              @if (departmentControl.invalid && departmentControl.touched) {
+
+              <small class="validation-error">
+                Please select a department.
+              </small>
+
+              }
+
+            </div>
+
+
+
+            <!-- DESIGNATION -->
+
+            <div class="field">
+
+              <label for="designation">
+                Designation
+              </label>
+
+              <input id="designation"
+                     type="text"
+                     name="designation"
+                     placeholder="Software Developer"
+                     [(ngModel)]="designation"
+                     required
+                     minlength="2"
+                     pattern="[A-Za-z ]+"
+                     #designationControl="ngModel"
+                     [class.invalid-input]="designationControl.invalid && designationControl.touched"
+                     [class.valid-input]="designationControl.valid && designationControl.touched">
+
+              @if (designationControl.invalid && designationControl.touched) {
+
+              <small class="validation-error">
+                Enter a valid designation.
+              </small>
+
+              }
+
+            </div>
+
+
+
+            <!-- EMPLOYMENT TYPE -->
+
+            <div class="field field-wide">
+
+              <label>
+                Employment Type
+              </label>
+
+
+              <div class="employment-options">
+
+
+                <label class="employment-option">
+
+                  <input type="radio"
+                         name="employmentType"
+                         value="Full Time"
+                         [(ngModel)]="employmentType"
+                         required>
+
+                  <span>
+                    <strong>Full Time</strong>
+                    <small>Permanent employee</small>
+                  </span>
+
+                </label>
+
+
+
+                <label class="employment-option">
+
+                  <input type="radio"
+                         name="employmentType"
+                         value="Intern"
+                         [(ngModel)]="employmentType"
+                         required>
+
+                  <span>
+                    <strong>Intern</strong>
+                    <small>Internship / trainee</small>
+                  </span>
+
+                </label>
+
+
+
+                <label class="employment-option">
+
+                  <input type="radio"
+                         name="employmentType"
+                         value="Contract"
+                         [(ngModel)]="employmentType"
+                         required>
+
+                  <span>
+                    <strong>Contract</strong>
+                    <small>Contract employee</small>
+                  </span>
+
+                </label>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ================================================= -->
+      <!-- LIVE FORM STATUS -->
+      <!-- ================================================= -->
+
+      <div class="form-status">
+
+        <div class="status-text">
+
+          <span class="status-dot"></span>
+
+          @if (employeeForm.valid) {
+
+          <strong>
+            Profile ready for registration
+          </strong>
+
+          <small>
+            All required information has been completed.
+          </small>
+
+          } @else {
+
+          <strong>
+            Profile is still incomplete
+          </strong>
+
+          <small>
+            Complete all required fields before registering.
+          </small>
+
+          }
+
+        </div>
+
+
+        <div class="status-count">
+
+          @if (employeeForm.valid) {
+          ✓ READY
+          } @else {
+          DRAFT
+          }
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ================================================= -->
+      <!-- ACTION BUTTONS -->
+      <!-- ================================================= -->
+
+      <div class="form-actions">
+
+        <button type="button"
+                class="reset-button"
+                (click)="resetForm(employeeForm)">
+          Reset
+        </button>
+
+
+        <button type="submit"
+                class="register-button">
+          Create Employee
+
+          <span>
+            →
+          </span>
+
+        </button>
+
+      </div>
+
+
+    </form>
+
+
+
+    <footer class="form-footer">
+
+      <span>
+        🔒 Employee information is handled securely
+      </span>
+
+      <span>
+        PeopleHub / Employee Management
+      </span>
+
+    </footer>
+
+  </main>
+
+</div>

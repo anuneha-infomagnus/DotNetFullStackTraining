@@ -1,0 +1,106 @@
+.reactive-form-page {
+  min-height: 100vh;
+  padding: 50px;
+  background: #f8f5ed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.reactive-card {
+  width: 650px;
+  padding: 40px;
+  background: #fffdf8;
+  border: 1px solid #ddd8cc;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(23, 63, 53, 0.08);
+}
+
+.reactive-header {
+  margin-bottom: 30px;
+}
+
+  .reactive-header span {
+    color: #527d61;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+
+  .reactive-header h2 {
+    margin: 8px 0;
+    color: #173f35;
+    font-size: 28px;
+  }
+
+  .reactive-header p {
+    margin: 0;
+    color: #7a837e;
+    font-size: 13px;
+  }
+
+.field {
+  margin-bottom: 22px;
+}
+
+  .field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #48534e;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    height: 46px;
+    padding: 0 13px;
+    border: 1px solid #d5d0c4;
+    border-radius: 8px;
+    background: #fff;
+    outline: none;
+    font-size: 13px;
+  }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: #527d61;
+      box-shadow: 0 0 0 3px rgba(82, 125, 97, 0.1);
+    }
+
+.error {
+  display: block;
+  margin-top: 7px;
+  color: #b8544f;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+button {
+  width: 100%;
+  height: 46px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 8px;
+  background: #173f35;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+  button:hover {
+    background: #255748;
+  }
+
+.success {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 8px;
+  background: #edf5e8;
+  border: 1px solid #bdd3b4;
+  color: #294f3b;
+  font-size: 12px;
+  font-weight: 700;
+}

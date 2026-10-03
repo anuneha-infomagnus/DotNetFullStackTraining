@@ -1,0 +1,161 @@
+<div class="reactive-form-page">
+
+  <div class="reactive-card">
+
+    <div class="reactive-header">
+      <span>REACTIVE FORMS</span>
+      <h2>Employee Registration</h2>
+      <p>Register an employee using Angular Reactive Forms.</p>
+    </div>
+
+
+    <form [formGroup]="employeeForm" (ngSubmit)="registerEmployee()">
+
+      <!-- Employee ID -->
+
+      <div class="field">
+
+        <label for="employeeId">
+          Employee ID
+        </label>
+
+        <input id="employeeId"
+               type="text"
+               placeholder="EMP0001"
+               formControlName="employeeId">
+
+        @if (
+        employeeForm.get('employeeId')?.invalid &&
+        employeeForm.get('employeeId')?.touched
+        ) {
+
+        <small class="error">
+          Employee ID must look like EMP0001.
+        </small>
+
+        }
+
+      </div>
+
+
+      <!-- Employee Name -->
+
+      <div class="field">
+
+        <label for="employeeName">
+          Full Name
+        </label>
+
+        <input id="employeeName"
+               type="text"
+               placeholder="Enter full name"
+               formControlName="employeeName">
+
+        @if (
+        employeeForm.get('employeeName')?.invalid &&
+        employeeForm.get('employeeName')?.touched
+        ) {
+
+        <small class="error">
+          Name is required and must contain at least 3 characters.
+        </small>
+
+        }
+
+      </div>
+
+
+      <!-- Email -->
+
+      <div class="field">
+
+        <label for="email">
+          Email
+        </label>
+
+        <input id="email"
+               type="email"
+               placeholder="employee@example.com"
+               formControlName="email">
+
+        @if (
+        employeeForm.get('email')?.invalid &&
+        employeeForm.get('email')?.touched
+        ) {
+
+        <small class="error">
+          Enter a valid email address.
+        </small>
+
+        }
+
+      </div>
+
+
+      <!-- Department -->
+
+      <div class="field">
+
+        <label for="department">
+          Department
+        </label>
+
+        <select id="department"
+                formControlName="department">
+
+          <option value="">
+            Choose department
+          </option>
+
+          <option value="Engineering">
+            Engineering
+          </option>
+
+          <option value="Human Resources">
+            Human Resources
+          </option>
+
+          <option value="Finance">
+            Finance
+          </option>
+
+          <option value="Operations">
+            Operations
+          </option>
+
+        </select>
+
+        @if (
+        employeeForm.get('department')?.invalid &&
+        employeeForm.get('department')?.touched
+        ) {
+
+        <small class="error">
+          Please select a department.
+        </small>
+
+        }
+
+      </div>
+
+
+      <!-- Submit -->
+
+      <button type="submit">
+        Register Employee →
+      </button>
+
+    </form>
+
+
+    @if (employeeForm.valid) {
+
+    <div class="success">
+      ✓ Form is valid and ready to submit
+    </div>
+
+    }
+
+  </div>
+
+</div>
