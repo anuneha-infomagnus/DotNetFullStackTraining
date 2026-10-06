@@ -1,0 +1,183 @@
+<div class="employee-page">
+
+  <!-- PAGE HEADER -->
+
+  <div class="page-header">
+
+    <div>
+      <h1>Employee Management</h1>
+      <p>Manage employee information efficiently</p>
+    </div>
+
+    <button class="load-btn"
+            (click)="loadEmployees()">
+      Load Employees
+    </button>
+
+  </div>
+
+
+  <!-- ADD EMPLOYEE -->
+
+  <div class="card">
+
+    <h2>Add Employee</h2>
+
+    <div class="form-grid">
+
+      <input #nameInput
+             type="text"
+             placeholder="Employee Name">
+
+      <input #emailInput
+             type="email"
+             placeholder="Email Address">
+
+      <input #departmentInput
+             type="text"
+             placeholder="Department">
+
+      <button class="add-btn"
+              (click)="addEmployee(
+          nameInput.value,
+          emailInput.value,
+          departmentInput.value
+        )">
+
+        + Add Employee
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- EMPLOYEE LIST -->
+  @if (showEmployees) {
+
+  <div class="card">
+
+    <div class="list-header">
+
+      <div>
+        <h2>Employees</h2>
+        <p>{{ employees.length }} employee(s) found</p>
+      </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Actions</th>
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          @for (employee of employees; track employee.id) {
+
+          <tr>
+
+            <td>
+              {{ $index + 1 }}
+            </td>
+
+
+            @if (editingEmployeeId !== employee.id) {
+
+            <td>
+              {{ employee.name }}
+            </td>
+
+            <td>
+              {{ employee.email }}
+            </td>
+
+            <td>
+              {{ employee.department }}
+            </td>
+
+            <td class="actions">
+
+              <button class="edit-btn"
+                      (click)="editEmployee(employee)">
+                Edit
+              </button>
+
+              <button class="delete-btn"
+                      (click)="deleteEmployee(employee.id)">
+                Delete
+              </button>
+
+            </td>
+
+            }
+
+
+            @if (editingEmployeeId === employee.id) {
+
+            <td>
+
+              <input [(ngModel)]="editedEmployee.name"
+                     type="text">
+
+            </td>
+
+            <td>
+
+              <input [(ngModel)]="editedEmployee.email"
+                     type="email">
+
+            </td>
+
+            <td>
+
+              <input [(ngModel)]="editedEmployee.department"
+                     type="text">
+
+            </td>
+
+            <td class="actions">
+
+              <button class="save-btn"
+                      (click)="saveEmployee()">
+                Save
+              </button>
+
+              <button class="cancel-btn"
+                      (click)="cancelEdit()">
+                Cancel
+              </button>
+
+            </td>
+
+            }
+
+          </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  }
+
+</div>

@@ -1,0 +1,47 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Anuneha Peteti",
+      "email": "anuneha@gmail.com",
+      "department": "IT"
+    },
+    {
+      "id": "2",
+      "name": "Rahul Kumar",
+      "email": "rahul@gmail.com",
+      "department": "CSE"
+    },
+    {
+      "id": "3",
+      "name": "Priya Sharma",
+      "email": "priya@gmail.com",
+      "department": "Finance"
+    },
+    {
+      "id": "fwAdsNr_vis",
+      "name": "Manvi",
+      "email": "manvialavala@gmail.com",
+      "department": "AI&DS"
+    },
+    {
+      "id": "QQNh2mLEXBY",
+      "name": "Jahnavi",
+      "email": "janu@gmail.com",
+      "department": "IT"
+    },
+    {
+      "id": "txkud8XaQOE",
+      "name": "Geetha",
+      "email": "geetha@gmail.com",
+      "department": "MB"
+    },
+    {
+      "id": "7DSrEV8vy14",
+      "name": "Anusha",
+      "email": "anusha@gmail.com",
+      "department": "MBA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

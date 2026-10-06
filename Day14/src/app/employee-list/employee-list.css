@@ -1,0 +1,274 @@
+/* ================================
+   MAIN PAGE
+================================ */
+
+.employee-page {
+  min-height: 100vh;
+  padding: 40px 55px;
+  background: linear-gradient( 135deg, #f6f8ff 0%, #f8fbff 50%, #f4f9f7 100% );
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #263238;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+  .page-header h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #243b53;
+  }
+
+  .page-header p {
+    margin: 7px 0 0;
+    font-size: 14px;
+    color: #718096;
+  }
+
+
+/* ================================
+   COMMON CARD
+================================ */
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 28px;
+  margin-bottom: 24px;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(50, 70, 100, 0.07);
+}
+
+  .card h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 650;
+    color: #263b53;
+  }
+
+
+/* ================================
+   ADD EMPLOYEE FORM
+================================ */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #dce3ee;
+  border-radius: 9px;
+  background: #fbfcff;
+  color: #263238;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+  input::placeholder {
+    color: #9aa7b8;
+  }
+
+  input:focus {
+    background: white;
+    border-color: #8aa4e8;
+    box-shadow: 0 0 0 3px rgba(116, 145, 220, 0.12);
+  }
+
+
+/* ================================
+   BUTTON BASE
+================================ */
+
+button {
+  border: none;
+  border-radius: 9px;
+  padding: 11px 17px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+
+/* ================================
+   BUTTON COLORS
+================================ */
+
+.load-btn {
+  background: #6179c9;
+  color: white;
+}
+
+.add-btn {
+  background: #4e9f78;
+  color: white;
+}
+
+.edit-btn {
+  background: #e0a44b;
+  color: white;
+}
+
+.save-btn {
+  background: #4e9f78;
+  color: white;
+}
+
+.delete-btn {
+  background: #d86b72;
+  color: white;
+}
+
+.cancel-btn {
+  background: #8b95a5;
+  color: white;
+}
+
+
+/* ================================
+   EMPLOYEE LIST HEADER
+================================ */
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  .list-header p {
+    margin: 7px 0 0;
+    font-size: 13px;
+    color: #8491a3;
+  }
+
+
+/* ================================
+   TABLE
+================================ */
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 22px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid #e8edf4;
+  border-radius: 12px;
+}
+
+thead {
+  background: #f3f6fb;
+}
+
+th {
+  padding: 14px 15px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #65758b;
+}
+
+td {
+  padding: 15px;
+  border-top: 1px solid #edf0f5;
+  font-size: 14px;
+  color: #4a5a6a;
+  background: white;
+}
+
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+  tbody tr:hover td {
+    background: #f8faff;
+  }
+
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+  .actions input {
+    min-width: 130px;
+  }
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+  .employee-page {
+    padding: 25px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .employee-page {
+    padding: 18px;
+  }
+
+  .page-header {
+    flex-direction: column;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
